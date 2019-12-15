@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  graphql-api:
+    hostname: 'graphql-api'
+    build: .
+    ports:
+      - 9000:9000
+    container_name: graphql-api-dev
+    working_dir: /code
+    volumes:
+      - ..:/code:cached
+      - ~/.gitconfig:/root/.gitconfig
+    command: sleep infinity
+
+  db:
+    image: postgres:11
+    ports:
+      - '6033:5432'
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: testDBPassw0rd
+      POSTGRES_USER: dbuser
+      POSTGRES_DB: yznt

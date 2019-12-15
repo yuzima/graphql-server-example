@@ -1,0 +1,28 @@
+{
+  "name": "graphql-server-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc-watch --onSuccess \"netlify-lambda serve dist/\"",
+    "build": "tsc && netlify-lambda build dist/",
+    "docker:dev": "docker-compose -f dev/docker-compose.yml",
+    "docker:dev:up": "npm run docker:dev -- up -d",
+    "docker:dev:down": "npm run docker:dev -- down",
+    "docker:dev:connect": "npm run docker:dev -- exec graphql-api bash"
+  },
+  "author": "Yuzi.Ma <mayuz.bubupu@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.37",
+    "@types/graphql": "^14.5.0",
+    "@types/node-fetch": "^2.5.4",
+    "apollo-server-lambda": "^2.9.13",
+    "aws-lambda": "^0.1.2",
+    "graphql": "^14.5.8",
+    "netlify-lambda": "^1.6.3",
+    "node-fetch": "^2.6.0",
+    "tsc-watch": "^4.0.0",
+    "typescript": "^3.7.3"
+  }
+}
