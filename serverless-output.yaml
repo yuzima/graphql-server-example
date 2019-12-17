@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  GraphQL:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: graphql.handler
+      Runtime: nodejs8.10
+      Events:
+        AnyRequest:
+          Type: Api
+          Properties:
+            Path: /graphql
+            Method: ANY
+      CodeUri: s3://yuzi-graphql-server-example/ada2d6ee32c82d2e0c12c8e861a5c365
